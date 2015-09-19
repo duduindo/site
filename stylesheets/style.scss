@@ -1,0 +1,289 @@
+/** 
+\
+ \
+  \
+   \
+ 	Sort the rules in alphabet letters. OK?
+   /
+  /
+ /
+/
+**/
+
+
+/* VAR
+*****************/
+$images: '../images/';
+
+
+/* MIXIN
+*****************/
+
+////Mixin for border in sides
+/// @author I
+@mixin border_sides( $px, $type, $cor) {
+	border-left: $px $type $cor;
+	border-right: $px $type $cor;
+}
+
+/// Mixin to prefix a property
+/// @author Hugo Giraudel
+/// @param {String} $property - Property name
+/// @param {*} $value - Property value
+/// @param {List} $prefixes (()) - List of prefixes to print
+//  USING: @include prefix(display, flex, webkit ms o moz);
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+ 
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+/// Mixin to padding a property
+/// @author I
+/// @param {String} $property - Property name
+/// @param {*} $value - Property value
+/// @param {List} $paddings (()) - List of paddings to print
+@mixin padding-easy($property, $value, $paddings: ()) {
+  @each $padding in $paddings {
+    #{$property + '-' + $padding}: $value;
+  }  
+}
+
+
+
+
+/* CLASS
+*****************/
+.col-10 { width: 10%; }
+.col-20 { width: 20%; }
+.col-30 { width: 30%; }
+.col-40 { width: 40%; }
+.col-50 { width: 50%; }
+.col-60 { width: 60%; }
+.col-70 { width: 70%; }
+.col-80 { width: 80%; }
+.col-90 { width: 90%; }
+.col-100{ width: 100%;}
+.display-inline { display: inline-block; }
+.float-left { float: left; }
+.float-right { float: right; }
+.row {  width: 100%;  display: inline-block; }
+.text-center {	text-align: center;}
+.text-overflow {
+  overflow-x: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;  
+}
+
+
+
+* {
+	box-sizing: border-box;
+}
+
+
+
+html, body{
+	height: 100%;
+	margin:0;
+	font-family: 'Sans';
+}
+
+ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+
+body > header {
+	background-color: #303236;
+	height: 100%;	
+	left:0;
+	overflow-y: auto;
+	position: fixed;
+	width: 200px;
+	top: 0;
+
+	
+	a, p {
+		color: #fff;		
+		text-decoration: none;
+		text-shadow: 0px 2px rgba(0, 0, 0, 0.47);
+	}
+
+	section {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+		box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.09);
+		padding:10px;
+
+		a {				
+			@extend .text-center;							
+			display: table-cell;
+			font-size: 13px;						
+			transition: background-color 1s, color 0.50s;
+			vertical-align: middle;
+			width: 180px;
+		}
+
+		/* First <section> */
+		&:nth-of-type(1) {
+
+			p, h3 {
+				margin: 2px auto;
+			}
+			
+			h3 {				
+				color: #fff;
+				font-family: 'Source Sans Pro';
+				font-size: 30px;
+				
+				text-shadow: 0px 2px rgba(0, 0, 0, 1);
+
+			}
+		}
+
+		/* Second <section> */
+		&:nth-of-type(2) {
+
+			a {
+				color: #c8cacc;
+				font-weight: bold;
+				height: 30px;				
+				text-transform: uppercase;	
+
+				&:hover  { color: #77B43D; }
+				&.active { color: #77B43D; }
+			}		
+
+			input[type="search"] {				
+				border: 1px solid #000;
+				height: 30px;
+				opacity: 0.8;
+				width: 100%;
+
+				&:hover, &:active, &.active { opacity: 1; }
+
+			}
+
+			li {
+				margin:10px 0;
+			}
+		}//end nth-of-type(2)		
+	}//end section
+}//end header
+
+
+
+/* CONTENT OF SITE / MAIN
+**********************************/
+main {
+	@extend .float-right;
+
+	background: #fff url( $images + "bg02.png");
+
+	font-family: 'Source Sans Pro';
+	height: 100%;	
+	
+	$calc: calc(100% - 200px);
+	width: -webkit-$calc;
+	width: -ms-$calc;
+	width: -o-$calc;
+	width: -moz-$calc;
+	width: $calc;
+
+	a {
+		color: #c94663;
+	}
+
+	> section{
+
+		padding:50px;
+
+		h1, h2, h5 {
+			margin:5px auto;
+		}
+
+		/* Title of post */
+		h1 {
+
+			a {
+				color: #000;
+				font-size: 1.2em;
+				text-decoration: none;
+			}
+		}
+
+		/* Subtitle of post */
+		h2 {
+			color: #999;
+			font-size: 1em;
+		}
+
+		figure {
+
+			img { max-width: 100%; }
+
+		}
+	}
+}
+
+
+
+
+
+
+
+
+/* MEDIA QUERY
+*****************/
+
+@media (max-width: 767px) 
+{
+
+	body > header {
+		left: -180px;		
+		-webkit-transition: left 0.25s;
+		transition: left 0.25s;
+
+		-webkit-transform: translateZ(0);
+   		-moz-transform: translateZ(0);
+   		-ms-transform: translateZ(0);
+   		-o-transform: translateZ(0);
+   		transform: translateZ(0);
+	}
+
+	main {
+		$calc: calc(100% - 20px);
+		width: -webkit-$calc;
+		width: -ms-$calc;
+		width: -o-$calc;
+		width: -moz-$calc;
+		width: $calc;
+
+		> section{
+			padding:10px;
+		}
+	}
+}
+
+
+
+@media screen and (orientation: landscape){
+  
+  	body > header {
+		position: fixed;
+	}
+}
+
+
+
+@media screen and (orientation: portrait){
+  
+  	body > header {
+		position: fixed;
+	}
+}
