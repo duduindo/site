@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <title>Eduardo (duduindo)</title>
+    <title>Blog | Eduardo (duduindo)</title>
 
     <!-- Meta -->
     <meta charset="utf-8">    
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="stylesheets/style.css">   
 
   </head>
-  <body id="page-index">
+  <body id="page-blog">
       
       <!-- NAVIGATOR OF SITE  -->
       <header id="navigator">
@@ -35,10 +35,10 @@
          <section>
            <nav>
             <ul class="active-current">
-              <li><a href="blog.html">blog</a></li>
+              <li><a href="blog.html" class="active">blog</a></li>
               <li><a href="portfolio.html">portfólio</a></li>
               <li><a href="projetos.html">projetos</a></li>
-              <li><a href="contatos.html">contatos</a></li>
+              <li><a href="contatos.html" >contatos</a></li>
               <li>                  
                 <input type="search" placeholder=" Search">
               </li>
@@ -57,10 +57,37 @@
       <!-- jQuery ONLY FOR AJAX -->
       <script src="javascripts/jquery-2.1.3.min.js"></script>
       <script src="javascripts/respond.js"></script>   
-      <script src="javascripts/script.js?v=1"></script>   
+      <script src="javascripts/script.js"></script>   
+
       <script>
-        getPosts( "index" );
-      </script>
+
+        /* ONLOAD
+        *****************/
+        var load_post = function() 
+        {
+          if( location.hash.indexOf("#") > -1 ) {
+            getNumberPost( location.hash.replace("#", "") ); //Only one post         
+            return false;
+          }
+          
+          getPosts( "blog" ); //All posts
+        }
+
+
+        document.addEventListener( "DOMContentLoaded", function(){
+          load_post();          
+        }, false );
+
+
+        /* CHANGE HASH
+        *************/
+        window.onhashchange = function()
+        {          
+          load_post();                  
+        }
+        
+      </script>  
+
 
 
       <!-- Google Analytics -->

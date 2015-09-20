@@ -228,28 +228,26 @@ main {
 		.wp-caption { max-width: 100% !important; }
 		img { max-width: 100% !important; height: auto !important; }
 
-	}
-
-
-	/* Page 'Contatos' */
-	&[data-page="contatos"] {
-		
-		header {
-
-			h1 {
-				font-size: 2em;
-			}
-
-			h5 { display: none; }
-		}
-
-		article {
-			> ul >li{ margin-bottom: 10px; }
-		}
-	}
+	}	
 }
 
 
+/* ID of pages
+***************/
+#page-index, #page-contatos {	
+	main header > h5 { display: none; }
+}
+
+
+#page-index {
+		
+}
+
+
+#page-contatos {}
+#page-blog {}
+#page-portfolio {}
+#page-projetos {}
 
 
 
