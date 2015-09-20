@@ -3,7 +3,9 @@
  \
   \
    \
- 	Sort the rules in alphabet letters. OK?
+   	 		**** Code pattern ****
+ 	Sorting the rules in  letters alphabet order . OK?
+ 	"Yes, my english is one trash"
    /
   /
  /
@@ -63,30 +65,32 @@
 
 .text-overflow {
   overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 * {
   box-sizing: border-box; }
 
 html, body {
+  font-family: 'Sans';
   height: 100%;
-  margin: 0;
-  font-family: 'Sans'; }
+  margin: 0; }
 
 ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0; }
+  margin: 0;
+  padding: 0; }
 
+/* MENU - NAV
+*****************/
 body > header {
   background-color: #303236;
   height: 100%;
   left: 0;
   overflow-y: auto;
   position: fixed;
-  width: 200px;
-  top: 0; }
+  top: 0;
+  width: 200px; }
   body > header a, body > header p {
     color: #fff;
     text-decoration: none;
@@ -143,7 +147,7 @@ main {
   main a {
     color: #c94663; }
   main > section {
-    padding: 50px;
+    padding: 20px 50px;
     /* Title of post */
     /* Subtitle of post */ }
     main > section h1, main > section h2, main > section h5 {
@@ -155,8 +159,11 @@ main {
     main > section h2 {
       color: #999;
       font-size: 1em; }
-    main > section figure img {
-      max-width: 100%; }
+    main > section .wp-caption {
+      max-width: 100% !important; }
+    main > section img {
+      max-width: 100% !important;
+      height: auto !important; }
 
 /* MEDIA QUERY
 *****************/
@@ -179,9 +186,13 @@ main {
     width: calc(100% - 20px); }
     main > section {
       padding: 10px; } }
+/* Bug in android position fixed; landscape <> portrait
+*****************/
 @media screen and (orientation: landscape) {
   body > header {
     position: fixed; } }
+/* Bug in android position fixed; landscape <> portrait
+*****************/
 @media screen and (orientation: portrait) {
   body > header {
     position: fixed; } }

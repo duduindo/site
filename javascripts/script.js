@@ -1,37 +1,151 @@
+var teste = [{"ID":6,"title":"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet","status":"publish","type":"post","author":{"ID":1,"username":"eduardo","name":"admin","first_name":"","last_name":"","nickname":"admin","slug":"admin","URL":"","avatar":"http:\/\/0.gravatar.com\/avatar\/027f99cfa636e4491737edc6a374c471?s=96","description":"","registered":"2015-04-20T13:10:21+00:00","meta":{"links":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/1","archives":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/1\/posts"}}},"content":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis arcu tellus, tempor accumsan semper at, ultricies ut urna. Integer scelerisque ultricies dui vel porttitor. Proin magna est, vehicula sollicitudin lacinia condimentum, pellentesque in diam. Etiam cursus purus felis, vitae luctus risus pretium a. Sed ut nunc lacinia augue pharetra congue. Integer faucibus vitae magna ut viverra. Pellentesque sapien arcu, ullamcorper vitae feugiat nec, pretium vitae nulla. &lt;strong&gt;Quisque quis vestibulum nisl,&lt;\/strong&gt; eget consectetur nunc. Nam eleifend, nunc lobortis posuere cursus, diam a&lt;strong&gt;ugue mollis augue, eu porttito&lt;\/strong&gt;r mi erat non orci. Vestibulum eget est nibh. Etiam vulputate nisl tortor, id lacinia nunc bibendum id. Cras dictum luctus justo, in efficitur ex convallis ut.<\/p>\n<div id=\"attachment_7\" style=\"width: 1034px\" class=\"wp-caption aligncenter\"><a class=\"imagem-principal-post\" href=\"http:\/\/dudu.16mb.com\/blog\/wp-content\/uploads\/2015\/06\/post1.jpg\"><img class=\"wp-image-7 size-large\" src=\"http:\/\/dudu.16mb.com\/blog\/wp-content\/uploads\/2015\/06\/post1-1024x431.jpg\" alt=\"uma imagem\" width=\"1024\" height=\"431\" \/><\/a><p class=\"wp-caption-text\">uma imagem<\/p><\/div>\n<p>&nbsp;<\/p>\n<p>Mauris lacinia nisi a magna aliquet hendrerit. Suspendisse dignissim leo orci, eu dictum mi placerat vel. Vestibulum eu massa sed erat lobortis tempor nec sit amet est. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu vehicula lacus, vel congue velit. Integer ullamcorper tincidunt nulla, a malesuada ligula bibendum sit amet. Quisque ac lacus volutpat, feugiat lorem non, fermentum leo. Praesent ornare ante sollicitudin finibus dictum. Nam ipsum neque, sollicitudin placerat elit eu, tempor facilisis tellus. Praesent tempor urna vitae tincidunt efficitur. Fusce pellentesque libero nec tortor suscipit, vel dapibus nunc aliquet. Etiam pretium vehicula dolor.<\/p>\n<p>&nbsp;<\/p>\n","parent":null,"link":"http:\/\/dudu.16mb.com\/blog\/blog\/neque-porro-quisquam-est-qui-dolorem-ipsum-quia-dolor-sit-amet\/","date":"2015-06-23T00:30:33","modified":"2015-09-19T19:28:59","format":"standard","slug":"neque-porro-quisquam-est-qui-dolorem-ipsum-quia-dolor-sit-amet","guid":"http:\/\/dudu.16mb.com\/blog\/?p=6","excerpt":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis arcu tellus, tempor accumsan semper at, ultricies ut urna. Integer scelerisque ultricies dui vel porttitor. Proin magna est, vehicula sollicitudin lacinia condimentum, pellentesque in diam. Etiam cursus purus felis, vitae luctus risus pretium a. Sed ut nunc lacinia augue pharetra congue. Integer faucibus vitae magna ut [&hellip;]<\/p>\n","menu_order":0,"comment_status":"open","ping_status":"open","sticky":false,"date_tz":"UTC","date_gmt":"2015-06-23T00:30:33","modified_tz":"UTC","modified_gmt":"2015-09-19T19:28:59","meta":{"links":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/6","author":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/1","collection":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts","replies":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/6\/comments","version-history":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/6\/revisions"}},"featured_image":null,"terms":{"category":[{"ID":3,"name":"blog","slug":"blog","description":"Meu blog","taxonomy":"category","parent":null,"count":2,"link":"http:\/\/dudu.16mb.com\/blog\/category\/blog\/","meta":{"links":{"collection":"http:\/\/dudu.16mb.com\/blog\/wp-json\/taxonomies\/category\/terms","self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/taxonomies\/category\/terms\/3"}}}]}},{"ID":1,"title":"Hello world!","status":"publish","type":"post","author":{"ID":1,"username":"eduardo","name":"admin","first_name":"","last_name":"","nickname":"admin","slug":"admin","URL":"","avatar":"http:\/\/0.gravatar.com\/avatar\/027f99cfa636e4491737edc6a374c471?s=96","description":"","registered":"2015-04-20T13:10:21+00:00","meta":{"links":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/1","archives":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/1\/posts"}}},"content":"<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!<\/p>\n","parent":null,"link":"http:\/\/dudu.16mb.com\/blog\/blog\/hello-world\/","date":"2015-04-20T13:10:21","modified":"2015-09-19T19:29:57","format":"standard","slug":"hello-world","guid":"http:\/\/dudu.16mb.com\/blog\/?p=1","excerpt":"<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!<\/p>\n","menu_order":0,"comment_status":"open","ping_status":"open","sticky":false,"date_tz":"UTC","date_gmt":"2015-04-20T13:10:21","modified_tz":"UTC","modified_gmt":"2015-09-19T19:29:57","meta":{"links":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/1","author":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/1","collection":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts","replies":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/1\/comments","version-history":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/1\/revisions"}},"featured_image":null,"terms":{"category":[{"ID":3,"name":"blog","slug":"blog","description":"Meu blog","taxonomy":"category","parent":null,"count":2,"link":"http:\/\/dudu.16mb.com\/blog\/category\/blog\/","meta":{"links":{"collection":"http:\/\/dudu.16mb.com\/blog\/wp-json\/taxonomies\/category\/terms","self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/taxonomies\/category\/terms\/3"}}}]}}];
 
 
+/*	Pull and Push menu in screen <768.
+*****************/
 var slideMenuMove = function()
 {	
-	if( window.slideTouchStart <= 30 ) {
-		
-		if( window.slideTouchMove > 40 ) {			
+	if( window.slideTouchStartX <= 30 ) {
+		//If touchX be smaller 31
+		if( window.slideTouchMoveX > 40 ) { 
+			//If touchX be bigger 40
+			//Then open the menu
 			document.getElementById("navigator").style.left = "0px";
 		}
-
 		return false;
 	}
 
-	if( (window.slideTouchStart-20) > window.slideTouchMove ) {		
+
+
+	if( (window.slideTouchStartX-20) > window.slideTouchMoveX ) {
+		//If touchX be bigger for smaller
+		//Then close the menu
 		document.getElementById("navigator").style.left = "-180px";
 	}
 }
 
+var removeAllSections = function()
+{
+	var main = document.getElementsByTagName("main")[0];	
+			
+	while (main.firstChild) {
+		main.removeChild(main.firstChild);
+	}	
+}
 
+
+/* EVENT touchstart in document full
+******************/
 document.addEventListener('touchstart', function(event){
-	window.slideTouchStart = event.targetTouches[0].clientX;
+	window.slideTouchStartX = event.targetTouches[0].clientX;
 }, false);
 
+
+/* EVENT touchmove in document full
+******************/
 document.addEventListener('touchmove', function(event){	
-	window.slideTouchMove = event.targetTouches[0].clientX;
+	window.slideTouchMoveX = event.targetTouches[0].clientX;
 	
 	slideMenuMove();	
 }, false);
 
 
+/* EVENT touchend in document full
+******************/
 document.addEventListener('touchend', function(event){
-
-	//window.slideTouchEnd = event.changedTouches[0].clientX;
-	delete window.slideTouchStart;
-	delete window.slideTouchMove;
-	delete window.slideTouchEnd;
+	
+	delete window.slideTouchStartX;
+	delete window.slideTouchMoveX;
+	delete window.slideTouchEndX;
 }, false);
+
+
+/* CHANGE URL
+*****************/
+document.addEventListener( "DOMContentLoaded", function(){
+	getPosts( location.hash.replace("#", "") );		
+}, false );
+
+
+window.onhashchange = function()
+{	
+	removeAllSections();
+	document.getElementById("navigator").style.left = "-180px";
+	getPosts( location.hash.replace("#", "") );
+}
+
+
+
+/* JSON for FRONT
+*****************/
+var jsonForFront = function( json )
+{
+
+	var main 	= document.getElementsByTagName("main")[0];
+	var section = [],
+		header = [],
+		h1 = [],
+		h2 = [],
+		h5 = [],
+		article = [];
+
+	var data_author;
+
+	if( json.length <= 0 ) {
+		alert("Not found");
+		return false;
+	}
+
+	//First loop
+	for(n=0; n<json.length; n++) {
+		//Creating the elements
+		section[n] 	= document.createElement("section");
+		header[n]  	= document.createElement("header");
+		article[n] 	= document.createElement("article");
+		h1[n] 		= document.createElement("h1");		
+		h5[n] 		= document.createElement("h5");		
+
+		//Content in the elements
+		h1[n].innerText 		= json[n].title;
+		h5[n].innerHTML 		= json[n].date + " by <a href='#'>"+ json[n].author.username +"</a>";
+		article[n].innerHTML	= json[n].content.replace(/&lt;/g,"<").replace(/&gt;/g,">");
+
+		//View in action! :D
+		header[n].appendChild( h1[n] );
+		header[n].appendChild( h5[n] );
+		section[n].appendChild( header[n]  );
+		section[n].appendChild( article[n] );
+		main.appendChild( section[n] );
+	}
+	
+}
+
+
+
+/* MODEL - BACKEND
+*****************/
+window._servidor = "http://dudu.16mb.com/blog/wp-json/";
+
+
+/*
+	categories: blog, contatos, portfolio, projetos
+*/
+var getPosts = function ( category )
+{
+	$.getJSON( window._servidor + "posts?_jsonp=?", { 'filter[s]':category }, function() {})
+    .done(function( data ){        
+       console.log(data)
+       jsonForFront( data );
+
+    })
+    .fail(function() {
+       
+    });
+}
+
+
+
+//var a = {"name":"Blog - Duduindo","description":"S\u00f3 mais um site WordPress","URL":"http:\/\/dudu.16mb.com\/blog","routes":{"\/":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/"}},"\/posts":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts"},"accepts_json":true},"\/posts\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/posts\/<id>\/revisions":{"supports":["HEAD","GET"]},"\/posts\/types":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/types"}},"\/posts\/types\/<type>":{"supports":["HEAD","GET"]},"\/posts\/statuses":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/statuses"}},"\/posts\/<id>\/comments":{"supports":["HEAD","GET"]},"\/posts\/<id>\/comments\/<comment>":{"supports":["HEAD","GET","DELETE"]},"\/users":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users"},"accepts_json":true},"\/users\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/users\/me":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/me"}},"\/posts\/<id>\/meta":{"supports":["HEAD","GET","POST"],"accepts_json":true},"\/posts\/<id>\/meta\/<mid>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/media":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/media"}},"\/media\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"]},"\/taxonomies":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/taxonomies"}},"\/taxonomies\/<taxonomy>":{"supports":["HEAD","GET"]},"\/taxonomies\/<taxonomy>\/terms":{"supports":["HEAD","GET"]},"\/taxonomies\/<taxonomy>\/terms\/<term>":{"supports":["HEAD","GET"]},"\/pages":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/pages"},"accepts_json":true},"\/pages\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/pages\/<id>\/revisions":{"supports":["HEAD","GET"]},"\/pages\/<id>\/comments":{"supports":["HEAD","GET"]},"\/pages\/<id>\/comments\/<comment>":{"supports":["HEAD","GET","DELETE"]},"\/pages\/<path>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true}},"authentication":[],"meta":{"links":{"help":"https:\/\/github.com\/WP-API\/WP-API","profile":"https:\/\/raw.github.com\/WP-API\/WP-API\/master\/docs\/schema.json"}}};
+
+
+

@@ -3,7 +3,9 @@
  \
   \
    \
- 	Sort the rules in alphabet letters. OK?
+   	 		**** Code pattern ****
+ 	Sorting the rules in  letters alphabet order . OK?
+ 	"Yes, my english is one trash"
    /
   /
  /
@@ -73,9 +75,9 @@ $images: '../images/';
 .row {  width: 100%;  display: inline-block; }
 .text-center {	text-align: center;}
 .text-overflow {
-  overflow-x: hidden; 
-  white-space: nowrap; 
+  overflow-x: hidden;   
   text-overflow: ellipsis;  
+  white-space: nowrap; 
 }
 
 
@@ -87,27 +89,27 @@ $images: '../images/';
 
 
 html, body{
-	height: 100%;
-	margin:0;
 	font-family: 'Sans';
+	height: 100%;
+	margin:0;	
 }
 
 ul {
 	list-style-type: none;
-	padding:0;
 	margin:0;
+	padding:0;	
 }
 
-
+/* MENU - NAV
+*****************/
 body > header {
 	background-color: #303236;
 	height: 100%;	
 	left:0;
 	overflow-y: auto;
 	position: fixed;
-	width: 200px;
 	top: 0;
-
+	width: 200px;
 	
 	a, p {
 		color: #fff;		
@@ -201,7 +203,7 @@ main {
 
 	> section{
 
-		padding:50px;
+		padding:20px 50px;
 
 		h1, h2, h5 {
 			margin:5px auto;
@@ -223,11 +225,8 @@ main {
 			font-size: 1em;
 		}
 
-		figure {
-
-			img { max-width: 100%; }
-
-		}
+		.wp-caption { max-width: 100% !important; }
+		img { max-width: 100% !important; height: auto !important; }		
 	}
 }
 
@@ -271,7 +270,8 @@ main {
 }
 
 
-
+/* Bug in android position fixed; landscape <> portrait
+*****************/
 @media screen and (orientation: landscape){
   
   	body > header {
@@ -280,7 +280,8 @@ main {
 }
 
 
-
+/* Bug in android position fixed; landscape <> portrait
+*****************/
 @media screen and (orientation: portrait){
   
   	body > header {
