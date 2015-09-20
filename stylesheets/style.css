@@ -143,7 +143,8 @@ main {
   width: -ms- calc(100% - 200px);
   width: -o- calc(100% - 200px);
   width: -moz- calc(100% - 200px);
-  width: calc(100% - 200px); }
+  width: calc(100% - 200px);
+  /* Page 'Contatos' */ }
   main a {
     color: #c94663; }
   main > section {
@@ -164,6 +165,12 @@ main {
     main > section img {
       max-width: 100% !important;
       height: auto !important; }
+  main[data-page="contatos"] header h1 {
+    font-size: 2em; }
+  main[data-page="contatos"] header h5 {
+    display: none; }
+  main[data-page="contatos"] article > ul > li {
+    margin-bottom: 10px; }
 
 /* MEDIA QUERY
 *****************/

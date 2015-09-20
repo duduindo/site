@@ -33,6 +33,19 @@ var removeAllSections = function()
 	}	
 }
 
+var activeButtonHeader = function( hash )
+{
+	var parentt = document.getElementsByClassName("active-current")[0];
+
+	if( typeof(parentt.getElementsByClassName("active")[0]) !== 'object' ) {
+		parentt.querySelectorAll('[href="#'+ hash +'"]')[0].className = "active";
+		return false;
+	}
+
+	parentt.getElementsByClassName("active")[0].className = "";
+	parentt.querySelectorAll('[href="#'+ hash +'"]')[0].className = "active";
+}
+
 
 /* EVENT touchstart in document full
 ******************/
@@ -60,20 +73,36 @@ document.addEventListener('touchend', function(event){
 }, false);
 
 
-/* CHANGE URL
+/* ONLOAD
 *****************/
 document.addEventListener( "DOMContentLoaded", function(){
-	getPosts( location.hash.replace("#", "") );		
+
+	if( location.hash.indexOf("#") < 0 ) {
+		getPosts( "contatos" );
+		activeButtonHeader("contatos");
+		return false;
+	}
+	activeButtonHeader( location.hash.replace("#", "") );
+	getPosts( location.hash.replace("#", "") );
+
 }, false );
 
 
+
+/* CHANGE HASH
+*************/
 window.onhashchange = function()
 {	
 	removeAllSections();
-	document.getElementById("navigator").style.left = "-180px";
+	activeButtonHeader( location.hash.replace("#", "") );
 	getPosts( location.hash.replace("#", "") );
-}
 
+	if( document.body.offsetWidth < 768 ) {
+		document.getElementById("navigator").style.left = "-180px";
+	}
+
+
+}
 
 
 /* JSON for FRONT
@@ -92,7 +121,7 @@ var jsonForFront = function( json )
 	var data_author;
 
 	if( json.length <= 0 ) {
-		alert("Not found");
+		//json[0]["title"] = 
 		return false;
 	}
 
@@ -117,7 +146,14 @@ var jsonForFront = function( json )
 		section[n].appendChild( article[n] );
 		main.appendChild( section[n] );
 	}
-	
+
+
+	//Alter attribution 'data-page' in the element 'main'. For manipulation in css.
+	if( location.hash.indexOf("#") < 0 ) {
+		main.setAttribute("data-page", "contatos");
+		return false;
+	}
+	main.setAttribute("data-page", location.hash.replace("#", ""));
 }
 
 

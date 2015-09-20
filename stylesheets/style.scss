@@ -226,7 +226,26 @@ main {
 		}
 
 		.wp-caption { max-width: 100% !important; }
-		img { max-width: 100% !important; height: auto !important; }		
+		img { max-width: 100% !important; height: auto !important; }
+
+	}
+
+
+	/* Page 'Contatos' */
+	&[data-page="contatos"] {
+		
+		header {
+
+			h1 {
+				font-size: 2em;
+			}
+
+			h5 { display: none; }
+		}
+
+		article {
+			> ul >li{ margin-bottom: 10px; }
+		}
 	}
 }
 
