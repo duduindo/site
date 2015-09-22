@@ -16,11 +16,9 @@
     <meta property="og:type" content="blog"/>
     <meta property="og:description" content="Desenvolvedor Web Front-end"/>
 
-    <!-- Syntax Highlight -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">   
-    <link rel="stylesheet" href="stylesheets/style.css">   
+    <!-- Syntax Highlight -->    
+    <!--link rel="stylesheet" href="stylesheets/font-awesome.min.css"-->
+    <link rel="stylesheet" href="stylesheets/style.css"> 
 
   </head>
   <body id="page-blog">
@@ -65,8 +63,8 @@
         *****************/
         var load_post = function() 
         {
-          if( location.hash.indexOf("#") > -1 ) {
-            getNumberPost( location.hash.replace("#", "") ); //Only one post         
+          if( location.hash.indexOf("#!/") > -1 ) {
+            getNumberPost( location.hash.replace("#!/", "") ); //Only one post         
             return false;
           }
           

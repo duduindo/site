@@ -16,6 +16,23 @@
 /* VAR
 *****************/
 $images: '../images/';
+$fonts: '../fonts/';
+
+
+/* FONT-FACE
+*****************/
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url( $fonts + 'OpenSans/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url( $fonts + 'OpenSans/OpenSans-Bold.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url( $fonts + 'SourceSansPro/SourceSansPro-Semibold.ttf');
+}
 
 
 /* MIXIN
@@ -89,7 +106,7 @@ $images: '../images/';
 
 
 html, body{
-	font-family: 'Sans';
+	font-family: 'Open Sans Regular';
 	height: 100%;
 	margin:0;	
 }
@@ -214,7 +231,10 @@ main {
 
 			a {
 				color: #000;
+				font-family: 'Open Sans Bold', Verdana, Helvetica, Arial, sans-serif;
 				font-size: 1.2em;
+				line-height: 1.2;
+				margin-top: 1.3em;
 				text-decoration: none;
 			}
 		}
@@ -223,6 +243,14 @@ main {
 		h2 {
 			color: #999;
 			font-size: 1em;
+		}
+
+		p {
+			font-family: 'Open Sans Regular', Verdana, Helvetica, Arial, sans-serif;
+			font-size: 0.9em;
+			line-height: 1.7;
+			margin: 1.4em 0;
+			padding:0;
 		}
 
 		.wp-caption { max-width: 100% !important; }
@@ -281,7 +309,25 @@ main {
 		width: $calc;
 
 		> section{
+
 			padding:10px;
+			
+			/* Title of post */
+			h1 {
+	
+				a {				
+					font-size: 1em;
+					line-height: 1.2;
+					margin-top: 1.3em;				
+				}
+			}
+				
+			p {			
+				font-size: 1.1em;
+				line-height: 1.7;
+				margin: 1.4em 0;			
+			}		
+
 		}
 	}
 }

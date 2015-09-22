@@ -13,6 +13,17 @@
 **/
 /* VAR
 *****************/
+/* FONT-FACE
+*****************/
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url("../fonts/OpenSans/OpenSans-Regular.ttf"); }
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf"); }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro/SourceSansPro-Semibold.ttf"); }
 /* MIXIN
 *****************/
 /* CLASS
@@ -72,7 +83,7 @@
   box-sizing: border-box; }
 
 html, body {
-  font-family: 'Sans';
+  font-family: 'Open Sans Regular';
   height: 100%;
   margin: 0; }
 
@@ -154,11 +165,20 @@ main {
       margin: 5px auto; }
     main > section h1 a {
       color: #000;
+      font-family: 'Open Sans Bold', Verdana, Helvetica, Arial, sans-serif;
       font-size: 1.2em;
+      line-height: 1.2;
+      margin-top: 1.3em;
       text-decoration: none; }
     main > section h2 {
       color: #999;
       font-size: 1em; }
+    main > section p {
+      font-family: 'Open Sans Regular', Verdana, Helvetica, Arial, sans-serif;
+      font-size: 0.9em;
+      line-height: 1.7;
+      margin: 1.4em 0;
+      padding: 0; }
     main > section .wp-caption {
       max-width: 100% !important; }
     main > section img {
@@ -190,7 +210,16 @@ main {
     width: -moz- calc(100% - 20px);
     width: calc(100% - 20px); }
     main > section {
-      padding: 10px; } }
+      padding: 10px;
+      /* Title of post */ }
+      main > section h1 a {
+        font-size: 1em;
+        line-height: 1.2;
+        margin-top: 1.3em; }
+      main > section p {
+        font-size: 1.1em;
+        line-height: 1.7;
+        margin: 1.4em 0; } }
 /* Bug in android position fixed; landscape <> portrait
 *****************/
 @media screen and (orientation: landscape) {

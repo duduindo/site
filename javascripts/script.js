@@ -96,10 +96,10 @@ var jsonForFront = function( json )
 		h5[n] 		= document.createElement("h5");		
 
 		if( location.pathname.indexOf("blog.html") > 0 ) {
-			h1[n].innerHTML = "<a href='blog.html#"+ json[n].ID +"'>"+ json[n].title +"</a>";
+			h1[n].innerHTML = "<a href='blog.html#!/"+ json[n].ID +"'>"+ json[n].title +"</a>";
 		}
 		else{
-			h1[n].innerText = json[n].title;
+			h1[n].textContent = json[n].title;
 		}
 
 		//Content in the elements		
@@ -116,7 +116,7 @@ var jsonForFront = function( json )
 
 
 	//Alter attribution 'data-page' in the element 'main'. For manipulation in css.
-	if( location.hash.indexOf("#") < 0 ) {
+	if( location.hash.indexOf("#!/") < 0 ) {
 		main.setAttribute("data-page", "contatos");
 		return false;
 	}
