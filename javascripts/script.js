@@ -24,6 +24,7 @@ var slideMenuMove = function()
 	}
 }
 
+/* Removing all <sections> of <main>  */
 var removeAllSections = function()
 {
 	var main = document.getElementsByTagName("main")[0];	
@@ -31,6 +32,19 @@ var removeAllSections = function()
 	while (main.firstChild) {
 		main.removeChild(main.firstChild);
 	}
+}
+
+
+/* Manipulation value of <meta> of 'network social' */
+var setValueMetasSocial = function ( name, content )
+{
+	document.querySelector("meta[property='"+ name +"']").setAttribute("content", content);
+}
+
+/* Manipulation value of <meta> */
+var setValueMetas = function ( name, content )
+{
+	document.querySelector("meta[name='"+ name +"']").setAttribute("content", content);
 }
 
 
@@ -95,13 +109,22 @@ var jsonForFront = function( json )
 		h1[n] 		= document.createElement("h1");		
 		h5[n] 		= document.createElement("h5");		
 
-		if( location.pathname.indexOf("blog.html") > 0 ) {
-			h1[n].innerHTML = "<a href='blog.html#!/"+ json[n].ID +"'>"+ json[n].title +"</a>";
+		if( location.pathname.indexOf("blog.html") > 0 || location.pathname.indexOf("post.html") > 0 ) {
+			h1[n].innerHTML = "<a href='post.html#!/"+ json[n].ID +"'>"+ json[n].title +"</a>";			
 		}
 		else{
 			h1[n].textContent = json[n].title;
 		}
 
+		//Manipulation values in <head>
+		if( location.pathname.indexOf("post.html") > 0 ){
+			setValueMetas("description", json[n].title);
+			setValueMetasSocial("og:description", json[n].title);
+			setValueMetasSocial("og:title", json[n].title);
+			setValueMetasSocial("og:url", location.href);			
+		}
+
+		
 		//Content in the elements		
 		h5[n].innerHTML 		= json[n].date + " by <a href='#'>"+ json[n].author.username +"</a>";
 		article[n].innerHTML	= json[n].content.replace(/&lt;/g,"<").replace(/&gt;/g,">");

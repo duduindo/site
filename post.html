@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Blog | Eduardo (duduindo)</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="" />
+    <meta name="author" content="Eduardo">
+
+    
+
+    <!-- Facebook -->
+    <meta property="og:title" content=""/>
+    <meta property="og:site_name" content="Eduardo (duduindo)"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:description" content=""/>
+
+    <!-- Syntax Highlight -->    
+    <!--link rel="stylesheet" href="stylesheets/font-awesome.min.css"-->
+    <link rel="stylesheet" href="stylesheets/style.css"> 
+
+  </head>
+  <body id="page-blog">
+      
+      <!-- NAVIGATOR OF SITE  -->
+      <header id="navigator">
+        <section class="text-center logo">
+          <a href="index.html"><img src="images/logo.png" alt=""> </a>
+          <h3>Eduardo</h3>
+          <p><small>Front-end</small></p>
+        </section>
+         <section>
+           <nav>
+            <ul class="active-current">
+              <li><a href="blog.html" class="active">blog</a></li>
+              <li><a href="portfolio.html">portfólio</a></li>
+              <li><a href="projetos.html">projetos</a></li>
+              <li><a href="contatos.html" >contatos</a></li>
+              <li>                  
+                <input type="search" placeholder=" Search">
+              </li>
+            </ul>
+           </nav>
+         </section>
+      </header>
+
+        
+      <!-- CONTENT OF SITE / MANIPULATION IN AJAX -->
+      <main>
+        <section>Carregando...</section>
+      </main>
+
+
+      <!-- jQuery ONLY FOR AJAX -->
+      <script src="javascripts/jquery-2.1.3.min.js"></script>
+      <script src="javascripts/respond.js"></script>   
+      <script src="javascripts/script.js"></script>   
+
+      <script>
+
+        /* ONLOAD
+        *****************/
+        var load_post = function() 
+        {
+          if( location.hash.indexOf("#!/") > -1 ) {
+            getNumberPost( location.hash.replace("#!/", "") ); //Only one post         
+            return false;
+          }
+          
+          getPosts( "blog" ); //All posts
+        }
+
+
+        document.addEventListener( "DOMContentLoaded", function(){
+          load_post();          
+        }, false );
+
+
+        /* CHANGE HASH
+        *************/
+        window.onhashchange = function()
+        {          
+          load_post();                  
+        }
+        
+      </script>  
+
+
+
+      <!-- Google Analytics -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-67852184-1', 'auto');
+        ga('send', 'pageview');
+      
+      </script>
+    
+  </body>
+</html>
