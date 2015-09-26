@@ -150,22 +150,21 @@ var jsonForFront = function( json )
 /* MODEL - BACKEND
 *****************/
 window._servidor = "http://dudu.16mb.com/blog/wp-json/";
-
+window._alertFailConnection = "Oh não! Houve uma falha na conexão.<br/><br/> <button onclick='location.reload()'>Tentar novamente</button>";
 
 /*
 	categories: blog, contatos, portfolio, projetos
 */
 var getPosts = function ( category )
 {
-	$.getJSON( window._servidor + "posts?_jsonp=?", { 'filter[s]':category }, function() {})
+	$.getJSON( window._servidor + "posts?_jsonp=?", { 'filter[category_name]':category }, function() {})
     .done(function( data ){        
        console.log(data)
        removeAllSections();
-       jsonForFront( data );
-
+       jsonForFront( data );       
     })
-    .fail(function() {
-       
+    .fail(function() {       
+       document.getElementsByTagName("main")[0].getElementsByTagName("section")[0].innerHTML = window._alertFailConnection;
     });
 }
 
@@ -182,7 +181,7 @@ var getNumberPost = function ( number )
        jsonForFront( data );
     })
     .fail(function() {
-       
+       document.getElementsByTagName("main")[0].getElementsByTagName("section")[0].innerHTML = window._alertFailConnection;
     });
 }
 
