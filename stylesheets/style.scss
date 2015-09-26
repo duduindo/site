@@ -205,8 +205,7 @@ main {
 	background: #fff url( $images + "bg02.png");
 
 	font-family: 'Source Sans Pro';
-	height: 100%;	
-	
+		
 	$calc: calc(100% - 200px);
 	width: -webkit-$calc;
 	width: -ms-$calc;
@@ -257,6 +256,16 @@ main {
 		img { max-width: 100% !important; height: auto !important; }
 
 	}	
+}
+
+footer {
+	@extend .float-right;
+	$calc: calc(100% - 200px);
+	width: -webkit-$calc;
+	width: -ms-$calc;
+	width: -o-$calc;
+	width: -moz-$calc;
+	width: $calc;
 }
 
 
@@ -328,7 +337,16 @@ main {
 				margin: 1.4em 0;			
 			}		
 
-		}
+		}//./section
+	}//./main
+
+	footer {
+		$calc: calc(100% - 20px);
+		width: -webkit-$calc;
+		width: -ms-$calc;
+		width: -o-$calc;
+		width: -moz-$calc;
+		width: $calc;
 	}
 }
 

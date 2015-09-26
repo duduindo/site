@@ -64,7 +64,7 @@
 .float-left {
   float: left; }
 
-.float-right, main {
+.float-right, main, footer {
   float: right; }
 
 .row {
@@ -149,7 +149,6 @@ body > header {
 main {
   background: #fff url("../images/bg02.png");
   font-family: 'Source Sans Pro';
-  height: 100%;
   width: -webkit- calc(100% - 200px);
   width: -ms- calc(100% - 200px);
   width: -o- calc(100% - 200px);
@@ -185,6 +184,13 @@ main {
       max-width: 100% !important;
       height: auto !important; }
 
+footer {
+  width: -webkit- calc(100% - 200px);
+  width: -ms- calc(100% - 200px);
+  width: -o- calc(100% - 200px);
+  width: -moz- calc(100% - 200px);
+  width: calc(100% - 200px); }
+
 /* ID of pages
 ***************/
 #page-index main header > h5, #page-contatos main header > h5 {
@@ -219,7 +225,14 @@ main {
       main > section p {
         font-size: 1.1em;
         line-height: 1.7;
-        margin: 1.4em 0; } }
+        margin: 1.4em 0; }
+
+  footer {
+    width: -webkit- calc(100% - 20px);
+    width: -ms- calc(100% - 20px);
+    width: -o- calc(100% - 20px);
+    width: -moz- calc(100% - 20px);
+    width: calc(100% - 20px); } }
 /* Bug in android position fixed; landscape <> portrait
 *****************/
 @media screen and (orientation: landscape) {

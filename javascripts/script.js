@@ -15,8 +15,6 @@ var slideMenuMove = function()
 		return false;
 	}
 
-
-
 	if( (window.slideTouchStartX-20) > window.slideTouchMoveX ) {
 		//If touchX be bigger for smaller
 		//Then close the menu
@@ -46,7 +44,6 @@ var setValueMetas = function ( name, content )
 {
 	document.querySelector("meta[name='"+ name +"']").setAttribute("content", content);
 }
-
 
 
 
@@ -109,6 +106,7 @@ var jsonForFront = function( json )
 		h1[n] 		= document.createElement("h1");		
 		h5[n] 		= document.createElement("h5");		
 
+		//Link us posts
 		if( location.pathname.indexOf("blog.html") > 0 || location.pathname.indexOf("post.html") > 0 ) {
 			h1[n].innerHTML = "<a href='post.html#!/"+ json[n].ID +"'>"+ json[n].title +"</a>";			
 		}
@@ -116,19 +114,28 @@ var jsonForFront = function( json )
 			h1[n].textContent = json[n].title;
 		}
 
-		//Manipulation values in <head>
+		
+		//Manipulation values from in <head>
 		if( location.pathname.indexOf("post.html") > 0 ){
-			setValueMetas("description", json[n].title);
-			setValueMetasSocial("og:description", json[n].title);
-			setValueMetasSocial("og:title", json[n].title);
-			setValueMetasSocial("og:url", location.href);			
+			setValueMetas("description", json[n].title); //description
+			setValueMetasSocial("og:description", json[n].title);//og:description
+			setValueMetasSocial("og:title", json[n].title);		//og:title
+			setValueMetasSocial("og:url", location.href);			//og:url
+			document.title = json[n].title || "Não encontrado"; //title
+		}
+
+		//Content in the elements		
+		h5[n].innerHTML	= json[n].date + " by <a href='#'>"+ json[n].author.username +"</a>";
+
+		//BLOG: Show list post in excerpt
+		if( location.pathname.indexOf("blog.html") > 0 ) {
+			article[n].innerHTML	= json[n].excerpt;
+		}	
+		else {
+			article[n].innerHTML	= json[n].content;
 		}
 
 		
-		//Content in the elements		
-		h5[n].innerHTML 		= json[n].date + " by <a href='#'>"+ json[n].author.username +"</a>";
-		article[n].innerHTML	= json[n].content.replace(/&lt;/g,"<").replace(/&gt;/g,">");
-
 		//View in action! :D
 		header[n].appendChild( h1[n] );
 		header[n].appendChild( h5[n] );
@@ -136,14 +143,6 @@ var jsonForFront = function( json )
 		section[n].appendChild( article[n] );
 		main.appendChild( section[n] );
 	}
-
-
-	//Alter attribution 'data-page' in the element 'main'. For manipulation in css.
-	if( location.hash.indexOf("#!/") < 0 ) {
-		main.setAttribute("data-page", "contatos");
-		return false;
-	}
-	main.setAttribute("data-page", location.hash.replace("#", ""));
 }
 
 
