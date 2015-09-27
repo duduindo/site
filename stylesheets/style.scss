@@ -123,10 +123,36 @@ body > header {
 	background-color: #303236;
 	height: 100%;	
 	left:0;
-	overflow-y: auto;
+	//overflow-x: auto;
 	position: fixed;
 	top: 0;
 	width: 200px;
+
+	.toggleHeader {
+		background-color: #303236;		
+		border-radius: 0 10px 10px 0;
+		display: none;
+		height: 30px;
+		position: absolute;
+		right: -30px;
+		text-align: center;
+		top: 0;		
+		width: 30px;
+
+		img { 
+			margin-top: 5px; 
+			transition: transform 0.50s; 
+			transform: rotate(180deg); 
+
+			-webkit-transition: -webkit-transform 0.50s; 
+			-webkit-transform: rotate(180deg); 
+		}
+		
+		&.open {
+			img { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
+		}
+	}
+
 	
 	a, p {
 		color: #fff;		
@@ -307,6 +333,8 @@ footer {
    		-ms-transform: translateZ(0);
    		-o-transform: translateZ(0);
    		transform: translateZ(0);
+
+   		.toggleHeader { display: block; }
 	}
 
 	main {
@@ -319,7 +347,7 @@ footer {
 
 		> section{
 
-			padding:10px;
+			padding:30px 10px 10px 10px;
 			
 			/* Title of post */
 			h1 {

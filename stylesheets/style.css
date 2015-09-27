@@ -98,10 +98,28 @@ body > header {
   background-color: #303236;
   height: 100%;
   left: 0;
-  overflow-y: auto;
   position: fixed;
   top: 0;
   width: 200px; }
+  body > header .toggleHeader {
+    background-color: #303236;
+    border-radius: 0 10px 10px 0;
+    display: none;
+    height: 30px;
+    position: absolute;
+    right: -30px;
+    text-align: center;
+    top: 0;
+    width: 30px; }
+    body > header .toggleHeader img {
+      margin-top: 5px;
+      transition: transform 0.50s;
+      transform: rotate(180deg);
+      -webkit-transition: -webkit-transform 0.50s;
+      -webkit-transform: rotate(180deg); }
+    body > header .toggleHeader.open img {
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg); }
   body > header a, body > header p {
     color: #fff;
     text-decoration: none;
@@ -208,6 +226,8 @@ footer {
     -ms-transform: translateZ(0);
     -o-transform: translateZ(0);
     transform: translateZ(0); }
+    body > header .toggleHeader {
+      display: block; }
 
   main {
     width: -webkit- calc(100% - 20px);
@@ -216,7 +236,7 @@ footer {
     width: -moz- calc(100% - 20px);
     width: calc(100% - 20px); }
     main > section {
-      padding: 10px;
+      padding: 30px 10px 10px 10px;
       /* Title of post */ }
       main > section h1 a {
         font-size: 1em;

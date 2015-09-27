@@ -2,13 +2,14 @@
 /*	Pull and Push menu in screen <768.
 *****************/
 var slideMenuMove = function()
-{	
+{
 	if( window.slideTouchStartX <= 30 ) {
 		//If touchX be smaller 31
 		if( window.slideTouchMoveX > 40 ) { 
 			//If touchX be bigger 40
 			//Then open the menu
 			document.getElementById("navigator").style.left = "0px";
+			document.getElementsByClassName("toggleHeader")[0].classList.add("open");
 		}
 		return false;
 	}
@@ -17,6 +18,7 @@ var slideMenuMove = function()
 		//If touchX be bigger for smaller
 		//Then close the menu
 		document.getElementById("navigator").style.left = "-180px";
+		document.getElementsByClassName("toggleHeader")[0].classList.remove("open");
 	}
 }
 
@@ -43,11 +45,47 @@ var setValueMetas = function ( name, content )
 	document.querySelector("meta[name='"+ name +"']").setAttribute("content", content);
 }
 
+/* Manipulate width of <header> and <main> with Javascript if browser not supported width CALC() */
+var cssCalc = function()
+{
+	var main 	= document.getElementsByTagName("main")[0];
+	var header 	= document.getElementsByTagName("header")[0];
+	var Wbody	= document.body.offsetWidth;
+
+	if( !Modernizr.csscalc ) { //If not supported
+
+		if( Wbody < 768 ) {
+			//@media (max-width: 767px) 
+			Wmain = Wbody - 20;
+		}
+		else { 
+			//@media (min-width: 767px) 
+			Wmain = Wbody - 200;
+		}
+
+		main.style.width = Wmain + "px";
+	}//!Modernizr.csscalc
+}//cssCalc()
+
+
+/* ONLOAD */
+document.addEventListener( "DOMContentLoaded", function(){
+  cssCalc();  
+}, false );
+
+/* ONSIZE */
+window.onresize = function() {
+   cssCalc();
+
+   	if( document.body.offsetWidth > 767 ) {
+		document.getElementById("navigator").style.left = "0px";		
+	}
+};
 
 
 /* EVENT touchstart in document full
 ******************/
-document.addEventListener('touchstart', function(event){
+document.addEventListener('touchstart', function(event){	
 	window.slideTouchStartX = event.targetTouches[0].clientX;
 }, false);
 
@@ -57,6 +95,10 @@ document.addEventListener('touchstart', function(event){
 document.addEventListener('touchmove', function(event){	
 	window.slideTouchMoveX = event.targetTouches[0].clientX;
 	
+	if( document.body.offsetWidth > 767 ) {
+		document.getElementById("navigator").style.left = "0px";
+		return false;
+	}
 	slideMenuMove();	
 }, false);
 
@@ -71,6 +113,19 @@ document.addEventListener('touchend', function(event){
 }, false);
 
 
+/* EVENT click button .toggleHeader */
+document.getElementsByClassName("toggleHeader")[0].addEventListener( "touchstart", function(){
+  	
+  	if( this.className.indexOf("open") > 0 ) {
+  		document.getElementById("navigator").style.left = "-180px";
+  		this.classList.remove("open");
+  		return false;
+  	}
+
+  	document.getElementsByClassName("toggleHeader")[0].classList.add("open");
+  	document.getElementById("navigator").style.left = "0px";
+
+}, false );
 
 /* JSON for FRONT
 *****************/
