@@ -1,35 +1,56 @@
 
-/*	Pull and Push menu in screen <768.
-*****************/
-var slideMenuMove = function()
-{
-	if( window.slideTouchStartX <= 30 ) {
-		//If touchX be smaller 31
-		if( window.slideTouchMoveX > 40 ) { 
-			//If touchX be bigger 40
-			//Then open the menu
-			document.getElementById("navigator").style.left = "0px";
-			document.getElementsByClassName("toggleHeader")[0].classList.add("open");
-		}
-		return false;
-	}
 
-	if( (window.slideTouchStartX-20) > window.slideTouchMoveX ) {
-		//If touchX be bigger for smaller
-		//Then close the menu
-		document.getElementById("navigator").style.left = "-180px";
-		document.getElementsByClassName("toggleHeader")[0].classList.remove("open");
-	}
+
+//Event on
+var On = function(attr, selector, functions)
+{	
+	[].forEach.call(document.querySelectorAll(selector), function(el) {
+	  el.addEventListener(attr, function(event) {
+	    return functions(el, event);
+	  })
+	});
 }
 
-/* Removing all <sections> of <main>  */
-var removeAllSections = function()
+
+var el = function( el ) 
 {
-	var main = document.getElementsByTagName("main")[0];	
-			
-	while (main.firstChild) {
-		main.removeChild(main.firstChild);
-	}
+	return document.querySelectorAll( el );
+}
+
+
+//Mousemove no efeito
+On('mousemove', '.nuvens', function(este, evento){	
+
+	switch( evento.movementX ) {
+
+    	case -1: {
+    		el(".nuvens")[0].style.left = "-80px";
+    		el(".nuvens")[1].style.left = "-30px";
+    		el(".nuvens")[2].style.left = "-50px";    		
+    	} break;
+  	
+
+    	case 0: {
+    		el(".nuvens")[0].style.left = "-10px";
+    		el(".nuvens")[1].style.left = "-90px";
+    		el(".nuvens")[2].style.left = "-30px";    		
+    	} break;
+
+    	case 1: {
+    		el(".nuvens")[0].style.left = "-90px";
+    		el(".nuvens")[1].style.left = "-10px";
+    		el(".nuvens")[2].style.left = "-80px";    		
+    	} break;
+
+    }
+
+});
+
+
+/* Manipulation value of <meta> */
+var setValueMetas = function ( name, content )
+{
+	document.querySelector("meta[name='"+ name +"']").setAttribute("content", content);
 }
 
 
@@ -39,93 +60,19 @@ var setValueMetasSocial = function ( name, content )
 	document.querySelector("meta[property='"+ name +"']").setAttribute("content", content);
 }
 
-/* Manipulation value of <meta> */
-var setValueMetas = function ( name, content )
+/* Removing all <sections> of <main>  */
+var removeAllSections = function()
 {
-	document.querySelector("meta[name='"+ name +"']").setAttribute("content", content);
+	var main = document.getElementsByTagName("main")[0];
+	var section = main.getElementsByTagName("section");
+
+	for(n=0; n<section.length; n++) {
+		main.removeChild( section[n] );
+	}
+			
+	
 }
 
-/* Manipulate width of <header> and <main> with Javascript if browser not supported width CALC() */
-var cssCalc = function()
-{
-	var main 	= document.getElementsByTagName("main")[0];
-	var header 	= document.getElementsByTagName("header")[0];
-	var Wbody	= document.body.offsetWidth;
-
-	if( !Modernizr.csscalc ) { //If not supported
-
-		if( Wbody < 768 ) {
-			//@media (max-width: 767px) 
-			Wmain = Wbody - 20;
-		}
-		else { 
-			//@media (min-width: 767px) 
-			Wmain = Wbody - 200;
-		}
-
-		main.style.width = Wmain + "px";
-	}//!Modernizr.csscalc
-}//cssCalc()
-
-
-/* ONLOAD */
-document.addEventListener( "DOMContentLoaded", function(){
-  cssCalc();  
-}, false );
-
-/* ONSIZE */
-window.onresize = function() {
-   cssCalc();
-
-   	if( document.body.offsetWidth > 767 ) {
-		document.getElementById("navigator").style.left = "0px";		
-	}
-};
-
-
-/* EVENT touchstart in document full
-******************/
-document.addEventListener('touchstart', function(event){	
-	window.slideTouchStartX = event.targetTouches[0].clientX;
-}, false);
-
-
-/* EVENT touchmove in document full
-******************/
-document.addEventListener('touchmove', function(event){	
-	window.slideTouchMoveX = event.targetTouches[0].clientX;
-	
-	if( document.body.offsetWidth > 767 ) {
-		document.getElementById("navigator").style.left = "0px";
-		return false;
-	}
-	slideMenuMove();	
-}, false);
-
-
-/* EVENT touchend in document full
-******************/
-document.addEventListener('touchend', function(event){
-	
-	delete window.slideTouchStartX;
-	delete window.slideTouchMoveX;
-	delete window.slideTouchEndX;
-}, false);
-
-
-/* EVENT click button .toggleHeader */
-document.getElementsByClassName("toggleHeader")[0].addEventListener( "touchstart", function(){
-  	
-  	if( this.className.indexOf("open") > 0 ) {
-  		document.getElementById("navigator").style.left = "-180px";
-  		this.classList.remove("open");
-  		return false;
-  	}
-
-  	document.getElementsByClassName("toggleHeader")[0].classList.add("open");
-  	document.getElementById("navigator").style.left = "0px";
-
-}, false );
 
 /* JSON for FRONT
 *****************/
@@ -134,40 +81,37 @@ var jsonForFront = function( json )
 
 	var main 	= document.getElementsByTagName("main")[0];
 	var section = [],
-		header = [],
-		h1 = [],
-		h2 = [],
-		h5 = [],
-		article = [];
+		header = [],				
+		article = [],
+		h3 = [];
 
-	
 
 	//If not found article
 	if( json.length <= 0 ) {
 		var section	= document.createElement("section");
-		section.innerHTML = "<b>Ops.. Nenhum artigo encontrado. <h3 class='display-inline'>:(</h3> </b>";
+		section.innerHTML = "<article><b><p style='color: #FF9898;'>Ops.. Nenhum artigo encontrado. :(</p> </b></article>";
 		main.appendChild( section );
 		return false;
 	}
 
-	//First loop
+
+	//Master loop content
 	for(n=0; n<json.length; n++) {
 		//Creating the elements
 		section[n] 	= document.createElement("section");
 		header[n]  	= document.createElement("header");
 		article[n] 	= document.createElement("article");
-		h1[n] 		= document.createElement("h1");		
-		h5[n] 		= document.createElement("h5");		
+		h3[n] 		= document.createElement("h3");
+
 
 		//Link us posts
 		if( location.pathname.indexOf("blog.html") > 0 || location.pathname.indexOf("post.html") > 0 ) {
-			h1[n].innerHTML = "<a href='post.html#!/"+ json[n].ID +"'>"+ json[n].title +"</a>";			
+			h3[n].innerHTML = "<a href='post.html#!/"+ json[n].ID +"'>"+ json[n].title +"</a>";			
 		}
 		else{
-			h1[n].textContent = json[n].title;
+			h3[n].textContent = json[n].title;
 		}
 
-		
 		//Manipulation values from in <head>
 		if( location.pathname.indexOf("post.html") > 0 ){
 			setValueMetas("description", json[n].title); //description
@@ -177,26 +121,26 @@ var jsonForFront = function( json )
 			document.title = json[n].title || "Não encontrado"; //title
 		}
 
-		//Content in the elements		
-		h5[n].innerHTML	= json[n].date + " by <a href='#'>"+ json[n].author.username +"</a>";
-
 		//BLOG: Show list post in excerpt
 		if( location.pathname.indexOf("blog.html") > 0 ) {
-			article[n].innerHTML	= json[n].excerpt;
+			article[n].innerHTML	= json[n].excerpt;//Exemple: "The conte.."
 		}	
 		else {
-			article[n].innerHTML	= json[n].content;
+			article[n].innerHTML	= json[n].content;//Exemple: "The content"
 		}
 
-		
 		//View in action! :D
-		header[n].appendChild( h1[n] );
-		header[n].appendChild( h5[n] );
+		header[n].appendChild( h3[n] );		
 		section[n].appendChild( header[n]  );
 		section[n].appendChild( article[n] );
 		main.appendChild( section[n] );
 	}
+	
 }
+
+
+
+
 
 
 
@@ -237,10 +181,3 @@ var getNumberPost = function ( number )
        document.getElementsByTagName("main")[0].getElementsByTagName("section")[0].innerHTML = window._alertFailConnection;
     });
 }
-
-
-
-//var a = {"name":"Blog - Duduindo","description":"S\u00f3 mais um site WordPress","URL":"http:\/\/dudu.16mb.com\/blog","routes":{"\/":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/"}},"\/posts":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts"},"accepts_json":true},"\/posts\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/posts\/<id>\/revisions":{"supports":["HEAD","GET"]},"\/posts\/types":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/types"}},"\/posts\/types\/<type>":{"supports":["HEAD","GET"]},"\/posts\/statuses":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/posts\/statuses"}},"\/posts\/<id>\/comments":{"supports":["HEAD","GET"]},"\/posts\/<id>\/comments\/<comment>":{"supports":["HEAD","GET","DELETE"]},"\/users":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users"},"accepts_json":true},"\/users\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/users\/me":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/users\/me"}},"\/posts\/<id>\/meta":{"supports":["HEAD","GET","POST"],"accepts_json":true},"\/posts\/<id>\/meta\/<mid>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/media":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/media"}},"\/media\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"]},"\/taxonomies":{"supports":["HEAD","GET"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/taxonomies"}},"\/taxonomies\/<taxonomy>":{"supports":["HEAD","GET"]},"\/taxonomies\/<taxonomy>\/terms":{"supports":["HEAD","GET"]},"\/taxonomies\/<taxonomy>\/terms\/<term>":{"supports":["HEAD","GET"]},"\/pages":{"supports":["HEAD","GET","POST"],"meta":{"self":"http:\/\/dudu.16mb.com\/blog\/wp-json\/pages"},"accepts_json":true},"\/pages\/<id>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true},"\/pages\/<id>\/revisions":{"supports":["HEAD","GET"]},"\/pages\/<id>\/comments":{"supports":["HEAD","GET"]},"\/pages\/<id>\/comments\/<comment>":{"supports":["HEAD","GET","DELETE"]},"\/pages\/<path>":{"supports":["HEAD","GET","POST","PUT","PATCH","DELETE"],"accepts_json":true}},"authentication":[],"meta":{"links":{"help":"https:\/\/github.com\/WP-API\/WP-API","profile":"https:\/\/raw.github.com\/WP-API\/WP-API\/master\/docs\/schema.json"}}};
-
-
-

@@ -24,8 +24,16 @@
 @font-face {
   font-family: 'Source Sans Pro';
   src: url("../fonts/SourceSansPro/SourceSansPro-Semibold.ttf"); }
-/* MIXIN
+/* EFFECT
 *****************/
+/* Standard syntax */
+@keyframes roda-gigante {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(0deg); } }
 /* CLASS
 *****************/
 .col-10 {
@@ -64,14 +72,14 @@
 .float-left {
   float: left; }
 
-.float-right, main, footer {
+.float-right {
   float: right; }
 
 .row {
   width: 100%;
   display: inline-block; }
 
-.text-center, body > header section a {
+.text-center {
   text-align: center; }
 
 .text-overflow {
@@ -83,6 +91,7 @@
   box-sizing: border-box; }
 
 html, body {
+  background-color: #524E5A;
   font-family: 'Open Sans Regular';
   height: 100%;
   margin: 0; }
@@ -92,176 +101,101 @@ ul {
   margin: 0;
   padding: 0; }
 
-/* MENU - NAV
-*****************/
-body > header {
-  background-color: #303236;
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 200px; }
-  body > header .toggleHeader {
-    background-color: #303236;
-    border-radius: 0 10px 10px 0;
-    display: none;
-    height: 30px;
+main > header {
+  height: 300px;
+  position: relative;
+  width: 100%; }
+  main > header nav {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 45%;
+    z-index: 1; }
+    main > header nav img {
+      padding: 10px; }
+    main > header nav:nth-of-type(2) {
+      text-align: right; }
+      main > header nav:nth-of-type(2) li {
+        display: inline-block;
+        margin-right: 30px; }
+      main > header nav:nth-of-type(2) a {
+        color: #524e5a;
+        font-size: 15px;
+        font-weight: 600px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 2s ease; }
+        main > header nav:nth-of-type(2) a:hover {
+          color: #7e7366; }
+  main > header .animacoes {
+    background-color: #eed584;
+    background: #e9b27b linear-gradient(180deg, #eed584, #e9b27b) repeat-x;
+    height: 300px;
+    left: 0;
+    overflow: hidden;
     position: absolute;
-    right: -30px;
-    text-align: center;
     top: 0;
-    width: 30px; }
-    body > header .toggleHeader img {
-      margin-top: 5px;
-      transition: transform 0.50s;
-      transform: rotate(180deg);
-      -webkit-transition: -webkit-transform 0.50s;
-      -webkit-transform: rotate(180deg); }
-    body > header .toggleHeader.open img {
-      transform: rotate(0deg);
-      -webkit-transform: rotate(0deg); }
-  body > header a, body > header p {
-    color: #fff;
-    text-decoration: none;
-    text-shadow: 0px 2px rgba(0, 0, 0, 0.47); }
-  body > header section {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.09);
-    padding: 10px;
-    /* First <section> */
-    /* Second <section> */ }
-    body > header section a {
-      display: table-cell;
-      font-size: 13px;
-      transition: background-color 1s, color 0.50s;
-      vertical-align: middle;
-      width: 180px; }
-    body > header section:nth-of-type(1) p, body > header section:nth-of-type(1) h3 {
-      margin: 2px auto; }
-    body > header section:nth-of-type(1) h3 {
-      color: #fff;
-      font-family: 'Source Sans Pro';
-      font-size: 30px;
-      text-shadow: 0px 2px black; }
-    body > header section:nth-of-type(2) a {
-      color: #c8cacc;
-      font-weight: bold;
-      height: 30px;
-      text-transform: uppercase; }
-      body > header section:nth-of-type(2) a:hover {
-        color: #77B43D; }
-      body > header section:nth-of-type(2) a.active {
-        color: #77B43D; }
-    body > header section:nth-of-type(2) input[type="search"] {
-      border: 1px solid #000;
-      height: 30px;
-      opacity: 0.8;
-      width: 100%; }
-      body > header section:nth-of-type(2) input[type="search"]:hover, body > header section:nth-of-type(2) input[type="search"]:active, body > header section:nth-of-type(2) input[type="search"].active {
-        opacity: 1; }
-    body > header section:nth-of-type(2) li {
-      margin: 10px 0; }
-
-/* CONTENT OF SITE / MAIN
-**********************************/
-main {
-  background: #fff url("../images/bg02.png");
-  font-family: 'Source Sans Pro';
-  width: -webkit- calc(100% - 200px);
-  width: -ms- calc(100% - 200px);
-  width: -o- calc(100% - 200px);
-  width: -moz- calc(100% - 200px);
-  width: calc(100% - 200px); }
-  main a {
-    color: #c94663; }
-  main > section {
-    padding: 20px 50px;
-    /* Title of post */
-    /* Subtitle of post */ }
-    main > section h1, main > section h2, main > section h5 {
-      margin: 5px auto; }
-    main > section h1 a {
-      color: #000;
-      font-family: 'Open Sans Bold', Verdana, Helvetica, Arial, sans-serif;
-      font-size: 1.2em;
-      line-height: 1.2;
-      margin-top: 1.3em;
+    width: 100%; }
+    main > header .animacoes img {
+      bottom: -1px;
+      left: -50px;
+      min-width: 800px;
+      position: absolute;
+      width: calc(100% + 100px);
+      z-index: 0; }
+    main > header .animacoes .roda-gigante {
+      top: -100%;
+      animation: roda-gigante 360s infinite; }
+    main > header .animacoes .nuvens {
+      transition: left 2s ease; }
+main section {
+  width: 100%; }
+  main section, main section a {
+    color: #eceafa; }
+  main section:last-child {
+    padding-bottom: 50px; }
+  main section > article, main section > header {
+    margin: 0 auto;
+    width: 800px; }
+  main section > article img {
+    max-width: 100% !important;
+    height: auto; }
+  main section h3 {
+    color: #f0dc9e;
+    font-size: 1.6em;
+    letter-spacing: 2px;
+    margin: 1.3em 0; }
+    main section h3 a {
+      color: #f0dc9e;
       text-decoration: none; }
-    main > section h2 {
-      color: #999;
-      font-size: 1em; }
-    main > section p {
-      font-family: 'Open Sans Regular', Verdana, Helvetica, Arial, sans-serif;
-      font-size: 0.9em;
-      line-height: 1.7;
-      margin: 1.4em 0;
-      padding: 0; }
-    main > section .wp-caption {
-      max-width: 100% !important; }
-    main > section img {
-      max-width: 100% !important;
-      height: auto !important; }
+  main section p {
+    color: #eceafa;
+    font-size: 1.13em;
+    line-height: 1.5em; }
 
-footer {
-  width: -webkit- calc(100% - 200px);
-  width: -ms- calc(100% - 200px);
-  width: -o- calc(100% - 200px);
-  width: -moz- calc(100% - 200px);
-  width: calc(100% - 200px); }
-
-/* ID of pages
-***************/
-#page-index main header > h5, #page-contatos main header > h5 {
-  display: none; }
-
-/* MEDIA QUERY
-*****************/
-@media (max-width: 767px) {
-  body > header {
-    left: -180px;
-    -webkit-transition: left 0.25s;
-    transition: left 0.25s;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0); }
-    body > header .toggleHeader {
-      display: block; }
-
-  main {
-    width: -webkit- calc(100% - 20px);
-    width: -ms- calc(100% - 20px);
-    width: -o- calc(100% - 20px);
-    width: -moz- calc(100% - 20px);
-    width: calc(100% - 20px); }
-    main > section {
-      padding: 30px 10px 10px 10px;
-      /* Title of post */ }
-      main > section h1 a {
-        font-size: 1em;
-        line-height: 1.2;
-        margin-top: 1.3em; }
-      main > section p {
-        font-size: 1.1em;
-        line-height: 1.7;
-        margin: 1.4em 0; }
-
-  footer {
-    width: -webkit- calc(100% - 20px);
-    width: -ms- calc(100% - 20px);
-    width: -o- calc(100% - 20px);
-    width: -moz- calc(100% - 20px);
-    width: calc(100% - 20px); } }
-/* Bug in android position fixed; landscape <> portrait
-*****************/
-@media screen and (orientation: landscape) {
-  body > header {
-    position: fixed; } }
-/* Bug in android position fixed; landscape <> portrait
-*****************/
-@media screen and (orientation: portrait) {
-  body > header {
-    position: fixed; } }
+@media (max-width: 1024px) {
+  main > header nav:nth-of-type(2) li {
+    margin-right: 10px; } }
+@media (max-width: 830px) {
+  main > header {
+    text-align: center; }
+    main > header nav {
+      display: block;
+      text-align: center;
+      width: 100%; }
+      main > header nav img {
+        padding: 0; }
+    main > header nav:nth-of-type(2) {
+      text-align: center; }
+      main > header nav:nth-of-type(2) ul {
+        line-height: 10px; }
+      main > header nav:nth-of-type(2) li {
+        display: block;
+        margin-right: 10px; }
+  main section {
+    width: 100%; }
+    main section > article, main section > header {
+      padding: 0 10px;
+      width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

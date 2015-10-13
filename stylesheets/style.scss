@@ -35,40 +35,13 @@ $fonts: '../fonts/';
 }
 
 
-/* MIXIN
+/* EFFECT
 *****************/
-
-////Mixin for border in sides
-/// @author I
-@mixin border_sides( $px, $type, $cor) {
-	border-left: $px $type $cor;
-	border-right: $px $type $cor;
-}
-
-/// Mixin to prefix a property
-/// @author Hugo Giraudel
-/// @param {String} $property - Property name
-/// @param {*} $value - Property value
-/// @param {List} $prefixes (()) - List of prefixes to print
-//  USING: @include prefix(display, flex, webkit ms o moz);
-@mixin prefix($property, $value, $prefixes: ()) {
-  @each $prefix in $prefixes {
-    #{'-' + $prefix + '-' + $property}: $value;
-  }
- 
-  // Output standard non-prefixed declaration
-  #{$property}: $value;
-}
-
-/// Mixin to padding a property
-/// @author I
-/// @param {String} $property - Property name
-/// @param {*} $value - Property value
-/// @param {List} $paddings (()) - List of paddings to print
-@mixin padding-easy($property, $value, $paddings: ()) {
-  @each $padding in $paddings {
-    #{$property + '-' + $padding}: $value;
-  }  
+/* Standard syntax */ 
+@keyframes roda-gigante {
+    0% 	{transform: rotate(0deg);}
+    50%	{transform: rotate(360deg);}
+    100%{transform: rotate(0deg);}
 }
 
 
@@ -106,295 +79,203 @@ $fonts: '../fonts/';
 
 
 html, body{
+	background-color: #524E5A;
 	font-family: 'Open Sans Regular';
 	height: 100%;
 	margin:0;	
 }
 
-ul {
+ul{
 	list-style-type: none;
 	margin:0;
-	padding:0;	
+	padding:0;
 }
 
-/* MENU - NAV
-*****************/
-body > header {
-	background-color: #303236;
-	height: 100%;	
-	left:0;
-	//overflow-x: auto;
-	position: fixed;
-	top: 0;
-	width: 200px;
-	
-
-	.toggleHeader {
-		background-color: #303236;		
-		border-radius: 0 10px 10px 0;
-		display: none;
-		height: 30px;
-		position: absolute;
-		right: -30px;
-		text-align: center;
-		top: 0;		
-		width: 30px;
-
-		img { 
-			margin-top: 5px; 
-			transition: transform 0.50s; 
-			transform: rotate(180deg); 
-
-			-webkit-transition: -webkit-transform 0.50s; 
-			-webkit-transform: rotate(180deg); 
-		}
-		
-		&.open {
-			img { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
-		}
-	}
-
-	
-	a, p {
-		color: #fff;		
-		text-decoration: none;
-		text-shadow: 0px 2px rgba(0, 0, 0, 0.47);
-	}
-
-	section {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-		box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.09);
-		padding:10px;
-
-		a {				
-			@extend .text-center;							
-			display: table-cell;
-			font-size: 13px;						
-			transition: background-color 1s, color 0.50s;
-			vertical-align: middle;
-			width: 180px;
-		}
-
-		/* First <section> */
-		&:nth-of-type(1) {
-
-			p, h3 {
-				margin: 2px auto;
-			}
-			
-			h3 {				
-				color: #fff;
-				font-family: 'Source Sans Pro';
-				font-size: 30px;
-				
-				text-shadow: 0px 2px rgba(0, 0, 0, 1);
-
-			}
-		}
-
-		/* Second <section> */
-		&:nth-of-type(2) {
-
-			a {
-				color: #c8cacc;
-				font-weight: bold;
-				height: 30px;				
-				text-transform: uppercase;	
-
-				&:hover  { color: #77B43D; }
-				&.active { color: #77B43D; }
-			}		
-
-			input[type="search"] {				
-				border: 1px solid #000;
-				height: 30px;
-				opacity: 0.8;
-				width: 100%;
-
-				&:hover, &:active, &.active { opacity: 1; }
-
-			}
-
-			li {
-				margin:10px 0;
-			}
-		}//end nth-of-type(2)		
-	}//end section
-}//end header
 
 
 
-/* CONTENT OF SITE / MAIN
-**********************************/
 main {
-	@extend .float-right;
+	// background: linear-gradient(180deg,#524e5a 0,#313247 30em);
+	// background-position:0px 300px;
 
-	background: #fff url( $images + "bg02.png");
+	> header {
+		height: 300px;		
+		position: relative;
+		width: 100%;
 
-	font-family: 'Source Sans Pro';
+		nav {
+			display: inline-block;
+			position: relative;			
+			vertical-align: top;
+			width: 45%;
+			z-index: 1;
+
+			img {
+				padding:10px;
+			}
+
+
+			&:nth-of-type(2) {
+				text-align: right;
+
+				li { display: inline-block;  margin-right: 30px;}
+
+				a {
+					color: #524e5a;
+					font-size: 15px;
+					font-weight: 600px;				
+					text-decoration: none; 
+					text-transform: uppercase; 
+					transition: color 2s ease;
+	
+					&:hover { color: #7e7366; }
+				}
+			}
+		}
 		
-	$calc: calc(100% - 200px);
-	width: -webkit-$calc;
-	width: -ms-$calc;
-	width: -o-$calc;
-	width: -moz-$calc;
-	width: $calc;
 
-	a {
-		color: #c94663;
-	}
+		.animacoes {
+			background-color: #eed584;
+			background: #e9b27b linear-gradient(180deg,#eed584,#e9b27b) repeat-x;
+			height: 300px;
+			left:0;
+			overflow: hidden;
+			position: absolute;
+			top:0;
+			width: 100%;
 
-	> section{
+			img {
+				bottom:-1px;
+				left: -50px;
+				min-width: 800px;
+				position: absolute;				
+				width: calc(100% + 100px);
+				z-index: 0;
 
-		padding:20px 50px;
+			}
 
-		h1, h2, h5 {
-			margin:5px auto;
+
+			///*EFEITOS*/
+			.roda-gigante {
+				top: -100%;
+				animation: roda-gigante 360s infinite;
+			}
+
+			.nuvens {
+				transition: left 2s ease;
+			}
 		}
 
-		/* Title of post */
-		h1 {
+	}//.Header
+
+
+	section {		
+		width:100%;
+
+
+		&, a {
+			color: #eceafa;
+		}
+
+		&:last-child { padding-bottom: 50px; }
+
+
+		> article, > header {
+			margin:0 auto;			
+			width: 800px;
+		}
+
+		> article {			
+			
+
+			img {max-width: 100% !important; height: auto;}
+			
+		}
+
+
+		h3 {
+			color: #f0dc9e;
+			font-size: 1.6em;
+			letter-spacing: 2px;
+			margin: 1.3em 0;
 
 			a {
-				color: #000;
-				font-family: 'Open Sans Bold', Verdana, Helvetica, Arial, sans-serif;
-				font-size: 1.2em;
-				line-height: 1.2;
-				margin-top: 1.3em;
+				color: #f0dc9e;
 				text-decoration: none;
 			}
 		}
 
-		/* Subtitle of post */
-		h2 {
-			color: #999;
-			font-size: 1em;
-		}
-
 		p {
-			font-family: 'Open Sans Regular', Verdana, Helvetica, Arial, sans-serif;
-			font-size: 0.9em;
-			line-height: 1.7;
-			margin: 1.4em 0;
-			padding:0;
+			color: #eceafa;
+			font-size: 1.13em;
+			line-height: 1.5em;			
 		}
-
-		.wp-caption { max-width: 100% !important; }
-		img { max-width: 100% !important; height: auto !important; }
-
-	}	
-}
-
-footer {
-	@extend .float-right;
-	$calc: calc(100% - 200px);
-	width: -webkit-$calc;
-	width: -ms-$calc;
-	width: -o-$calc;
-	width: -moz-$calc;
-	width: $calc;
-}
-
-
-/* ID of pages
-***************/
-#page-index, #page-contatos {	
-	main header > h5 { display: none; }
-}
-
-
-#page-index {
-		
-}
-
-
-#page-contatos {}
-#page-blog {}
-#page-portfolio {}
-#page-projetos {}
+	}//section
 
 
 
 
 
+}//Main
 
-/* MEDIA QUERY
-*****************/
 
-@media (max-width: 767px) 
-{
 
-	body > header {
-		left: -180px;		
-		-webkit-transition: left 0.25s;
-		transition: left 0.25s;
 
-		-webkit-transform: translateZ(0);
-   		-moz-transform: translateZ(0);
-   		-ms-transform: translateZ(0);
-   		-o-transform: translateZ(0);
-   		transform: translateZ(0);
 
-   		.toggleHeader { display: block; }
-	}
+@media (max-width: 1024px) {
 
 	main {
-		$calc: calc(100% - 20px);
-		width: -webkit-$calc;
-		width: -ms-$calc;
-		width: -o-$calc;
-		width: -moz-$calc;
-		width: $calc;
+		
+		> header {
 
-		> section{
+			nav:nth-of-type(2){
 
-			padding:30px 10px 10px 10px;
-			
-			/* Title of post */
-			h1 {
-	
-				a {				
-					font-size: 1em;
-					line-height: 1.2;
-					margin-top: 1.3em;				
-				}
+				li{ margin-right: 10px; }
 			}
-				
-			p {			
-				font-size: 1.1em;
-				line-height: 1.7;
-				margin: 1.4em 0;			
-			}		
-
-		}//./section
-	}//./main
-
-	footer {
-		$calc: calc(100% - 20px);
-		width: -webkit-$calc;
-		width: -ms-$calc;
-		width: -o-$calc;
-		width: -moz-$calc;
-		width: $calc;
-	}
+		}//header
+	}//main
 }
 
 
-/* Bug in android position fixed; landscape <> portrait
-*****************/
-@media screen and (orientation: landscape){
-  
-  	body > header {
-		position: fixed;
-	}
+
+@media (max-width: 830px) {
+
+	main {
+		
+		> header {
+			text-align: center;
+
+			nav {
+				display: block;
+				text-align: center;
+				width: 100%;
+
+				img { padding:0; }
+			}
+
+			nav:nth-of-type(2){
+
+				text-align: center;
+
+				ul{ line-height: 10px; }
+
+				li{ display:block; margin-right: 10px; }
+			}
+		}//header
+
+		section {
+
+			width:100%;
+
+			> article, > header {
+				padding:0 10px;
+				width: 100%;
+
+			}
+		}
+	}//main
 }
 
 
-/* Bug in android position fixed; landscape <> portrait
-*****************/
-@media screen and (orientation: portrait){
-  
-  	body > header {
-		position: fixed;
-	}
-}
+
+
