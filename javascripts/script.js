@@ -1,4 +1,21 @@
 
+//IE not support render SVG in CSS / :@
+var IEshitWithSVG = function ()
+{
+	if( navigator.appVersion.indexOf("MSIE") > 0 || navigator.appVersion.indexOf("msie") > 0 ){
+		document.getElementsByClassName("roda-gigante")[0].src = "images/light-rays.png";
+		document.getElementsByClassName("nuvens")[0].src = "images/t1.png";
+		document.getElementsByClassName("nuvens")[1].src = "images/t2.png";
+		document.getElementsByClassName("nuvens")[2].src = "images/t3.png";
+	}
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+	IEshitWithSVG();
+}, false);
 
 
 //Event on
